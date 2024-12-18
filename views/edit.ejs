@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task - ToDoApp</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- Link to external CSS -->
+    <style>
+        /* Inline CSS for quick reference (move to style.css for maintainability) */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .form-container h1 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            color: #218838;;
+        }
+
+        .form-container input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .form-container button {
+            background-color: #218838;;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: #218838;;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Edit Task</h1>
+        <form action="/listing/<%=showList.id%>/update?_method=PUT" method="post">
+            <input 
+                type="text" 
+                name="showList[task]" 
+                value="<%=showList.task%>" 
+                placeholder="Task Name" 
+                required>
+            
+            <input 
+                type="text" 
+                name="showList[status]" 
+                value="<%=showList.status%>" 
+                placeholder="Status (e.g., Completed)" 
+                required>
+            
+            <input 
+                type="text" 
+                name="showList[created_At]" 
+                value="<%=showList.created_At%>" 
+                placeholder="Creation Date" 
+                readonly>
+            
+            <button type="submit">Edit Now</button>
+        </form>
+    </div>
+</body>
+</html>
